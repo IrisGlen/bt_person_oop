@@ -30,8 +30,8 @@ export default class Render {
                   <td>${email}</td>
                  
                   <td>
-                  <button class="btn btn-danger">Xoá</button>
-                  <button class="btn btn-warning">Sửa</button>
+                  <button class="btn btn-danger" onclick="xoaNguoiDung('${ma}')">Xoá</button>
+                  <button class="btn btn-warning" onclick="layThongTinNguoiDung('${ma}')">Sửa</button>
                   </td>
         </tr>
         `;
@@ -51,5 +51,44 @@ layLocal() {
     this.renderLayout();
   }
 }
-
+xoaNguoiDung(ma) {
+  // dùng hàm findIndex để tìm vị trí của món ăn cần xoá trong mảng và sau đó dùng hàm splice để xoá
+  let index = this.arrListNguoi.findIndex((item) => item.ma == ma);
+  if (index != -1) {
+    this.arrListNguoi.splice(index, 1);
+    this.renderLayout();
+    this.luuLocal();
+  }
+}
+layThongTinNguoiDung(ma) {
+  // dùng hàm find để tìm ra phần tử bên trong array
+  let user = this.arrListNguoi.find((item) => item.ma == ma);
+  if (user) {
+    // dom tới nút button thêm món ăn để mở modal sau đó hiển thị dữ liệu lên các input cho người chỉnh sửa
+    document.getElementById('btnThem').click();
+    let arrInput = document.querySelectorAll(
+      '#inputForm input, #inputForm select, #inputForm textarea'
+    );
+    for (let item of arrInput) {
+      // let id = item.id
+      let { id } = item;
+      // item sẽ có id là foodID , item.value = monAn.foodID
+      item.value = user[id];
+    }
+    document.getElementById('ma').disabled = true;
+  }
+}
+chinhSuaNguoiDung(user) {
+  let index = this.arrListNguoi.findIndex((item) => item.ma == user.ma);
+  console.log(index);
+  if (index != -1) {
+    this.arrListNguoi[index] = user;
+    this.renderLayout();
+    this.luuLocal();
+    document.getElementById("inputForm").reset();  
+    document.getElementById('btnDong').click();
+  } else {
+    alert ("Khong the chinh sua");
+  }
+}
 }
