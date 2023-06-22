@@ -60,3 +60,20 @@ window.timKiemUser = (event) => {
   console.log(value);
   render.timKiemUser(value);
 };
+
+function displayWhenChange(obj)
+{
+    // var message = document.getElementById('show_message');
+    var value = obj.value;
+    if (value === ''){
+        // message.innerHTML = "Bạn chưa chọn giới tính";
+    }
+    else if (value === 'student'){
+      document.getElementById('FormStudent').style.display = 'block';
+      document.getElementById('FormTeacher').style.display = 'none';
+    }
+    else if (value === 'teacher'){
+      document.getElementById('FormTeacher').style.display = 'block';
+      document.getElementById('FormStudent').style.display = 'none';
+    }
+}

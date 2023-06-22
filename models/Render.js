@@ -92,13 +92,15 @@ timKiemUser(keyword) {
   // sử dụng hàm filter để có thể lọc được tất cả những món ăn trùng với từ mà người dùng nhập vào
   // lưu ý để cho kết quả tìm kiếm tốt nhất, khi người dùng nhập vô ta nên loại bỏ có dấu từ người dùng, đẩy hết tất cả về lower case, loại bỏ khoảng cách
   let newKeyWord = removeVietnameseTones(keyword);
-  let arrTimKiem = this.arrListNguoi.filter((item) => {
+ 
+  let arrTimKiem = this.arrListNguoi.filter((item, index) => {
     let tenNewUser = removeVietnameseTones(item.hoTen);
     return tenNewUser
       .toLowerCase()
       .trim()
       .includes(newKeyWord.toLowerCase().trim());
   });
-  console.log(arrTimKiem);
+
 }
+
 }

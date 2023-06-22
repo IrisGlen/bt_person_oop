@@ -166,13 +166,13 @@
 						<h4>Tính năng bổ sung</h4>
 						<div class="mb-3">
 							<label for="" class="form-label">Chọn loại người dùng</label>
-							<select class="form-select form-select-lg" name="" id="loaiNguoiDung">
+							<select class="form-select form-select-lg" name="" id="loaiNguoiDung" onchange="displayWhenChange(this)">
 								<option value="">Chọn một loại</option>
 								<option value="student">Student</option>
 								<option value="teacher">Teacher</option>
 							</select>
 						</div>
-						<div class="mb-3" id="FormTeacher">
+						<div class="mb-3" id="FormTeacher" style="display: none;">
 							<h5>For Teacher</h5>
 							<div class="form-group">
 								<div class="input-group">
@@ -198,7 +198,7 @@
 							</div>
 							<button class="btn btn-success" id="tinhLuong" onclick="tinhLuong()">Tinh Lương</button>
 							</div>
-							<div class="mb-3" id="FormStudent">
+							<div class="mb-3" id="FormStudent" style="display: none;">
 								<h5>For Student</h5>
 							<div class="form-group">
 								<div class="input-group">
@@ -354,7 +354,25 @@
 			});
 		});
 	</script>
-	
+	<script type="text/javascript">
+		function displayWhenChange(obj)
+{
+
+    var value = obj.value;
+    if (value === ""){
+        document.getElementById('FormStudent').style.display = 'none';
+      document.getElementById('FormTeacher').style.display = 'none';
+    }
+    else if (value === 'student'){
+      document.getElementById('FormStudent').style.display = 'block';
+      document.getElementById('FormTeacher').style.display = 'none';
+    }
+    else if (value === 'teacher'){
+      document.getElementById('FormTeacher').style.display = 'block';
+      document.getElementById('FormStudent').style.display = 'none';
+    }
+}
+	</script>
 	<!-- <script src="./models/NhanVien.js"></script>
 	<script src="./models/help.js"></script>
 	<script src="./models/validation.js"></script> -->
