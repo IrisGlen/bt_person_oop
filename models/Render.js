@@ -25,10 +25,9 @@ export default class Render {
         return `
         <tr>
                   <td>${ma}</td>
-                  <td>${hoTen}</td>
-                  <td>${diaChi}</td>
+                  <td>${hoTen}</td> 
                   <td>${email}</td>
-                 
+                  <td>${diaChi}</td>
                   <td>
                   <button class="btn btn-danger" onclick="xoaNguoiDung('${ma}')">Xoá</button>
                   <button class="btn btn-warning" onclick="layThongTinNguoiDung('${ma}')">Sửa</button>

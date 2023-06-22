@@ -24,6 +24,7 @@ document.getElementById('btnThemNV').addEventListener('click', () => {
     render.themNguoi(person);
     render.renderLayout();
     render.luuLocal();
+    document.getElementById("inputForm").reset();
     document.getElementById('btnDong').click();
 });
 
@@ -49,6 +50,9 @@ document.getElementById('btnEditUser').onclick = () => {
   }
   console.log(personEdit);
   render.chinhSuaNguoiDung(personEdit);
+  document.getElementById('ma').disabled = false;
+  document.getElementById("inputForm").reset();
+  
 };
 
 window.timKiemUser = (event) => {
