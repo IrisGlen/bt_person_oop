@@ -1,5 +1,5 @@
 import Person from './person.js';
-
+import removeVietnameseTones from './help.js';
 
 export default class Render {
     constructor() {
@@ -70,9 +70,7 @@ layThongTinNguoiDung(ma) {
       '#inputForm input, #inputForm select, #inputForm textarea'
     );
     for (let item of arrInput) {
-      // let id = item.id
       let { id } = item;
-      // item sẽ có id là foodID , item.value = monAn.foodID
       item.value = user[id];
     }
     document.getElementById('ma').disabled = true;
@@ -85,10 +83,23 @@ chinhSuaNguoiDung(user) {
     this.arrListNguoi[index] = user;
     this.renderLayout();
     this.luuLocal();
-    document.getElementById("inputForm").reset();  
+     
     document.getElementById('btnDong').click();
   } else {
     alert ("Khong the chinh sua");
   }
+}
+timKiemUser(keyword) {
+  // sử dụng hàm filter để có thể lọc được tất cả những món ăn trùng với từ mà người dùng nhập vào
+  // lưu ý để cho kết quả tìm kiếm tốt nhất, khi người dùng nhập vô ta nên loại bỏ có dấu từ người dùng, đẩy hết tất cả về lower case, loại bỏ khoảng cách
+  let newKeyWord = removeVietnameseTones(keyword);
+  let arrTimKiem = this.arrListNguoi.filter((item) => {
+    let tenNewUser = removeVietnameseTones(item.hoTen);
+    return tenNewUser
+      .toLowerCase()
+      .trim()
+      .includes(newKeyWord.toLowerCase().trim());
+  });
+  console.log(arrTimKiem);
 }
 }
