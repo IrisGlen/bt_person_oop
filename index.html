@@ -162,16 +162,80 @@
 							</ul>
 						</nav>
 					</div>
-					<div class="loai-usr justify-content-lg-start">
-						<h2>Tính năng bổ sung</h2>
+					<div class="loai-usr text-left p-4">
+						<h4>Tính năng bổ sung</h4>
 						<div class="mb-3">
 							<label for="" class="form-label">Chọn loại người dùng</label>
 							<select class="form-select form-select-lg" name="" id="loaiNguoiDung">
-								<option selected>Chọn một loại</option>
+								<option value="">Chọn một loại</option>
 								<option value="student">Student</option>
 								<option value="teacher">Teacher</option>
 							</select>
 						</div>
+						<div class="mb-3" id="FormTeacher">
+							<h5>For Teacher</h5>
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="fa fa-calendar"></i></span>
+									</div>
+									<input type="text" name="songaylam" id="songaylam" class="form-control"
+										placeholder="So ngày di làm">
+								</div>
+	
+								<span class="sp-tb" id="tbNgayLam"></span>
+							</div>
+							
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="fa fa-money" aria-hidden="true"></i></span>
+									</div>
+									<input type="text" name="luongCB" id="luongCB" class="form-control input-sm"
+										placeholder="Lương cơ bản">
+								</div>
+								<span class="sp-tb" id="tbLuongCB"></span>
+							</div>
+							<button class="btn btn-success" id="tinhLuong" onclick="tinhLuong()">Tinh Lương</button>
+							</div>
+							<div class="mb-3" id="FormStudent">
+								<h5>For Student</h5>
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="fa fa-briefcase"></i></span>
+									</div>
+									<input type="text" name="diemToan" id="diemToan" class="form-control input-sm"
+										placeholder="Diem Toan">
+								</div>
+	
+								<span class="sp-tb" id="tbDiemToan"></span>
+							</div>
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="fa fa-briefcase"></i></span>
+									</div>
+									<input type="text" name="diemLy" id="diemLy" class="form-control input-sm"
+										placeholder="Diem Ly">
+								</div>
+	
+								<span class="sp-tb" id="tbDiemLy"></span>
+							</div>
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="fa fa-briefcase"></i></span>
+									</div>
+									<input type="text" name="diemHoa" id="diemHoa" class="form-control input-sm"
+										placeholder="Diem Hoa">
+								</div>
+	
+								<span class="sp-tb" id="tbDiemHoa"></span>
+							</div>
+							<button class="btn btn-success" id="tinhDiemTB" onclick="tinhDiemTB()">Tinh điểm TB</button>
+						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -245,54 +309,6 @@
 							</div>
 							<span class="sp-tb" id="tbDiaChi"></span>
 						</div>
-
-						<!-- <div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-calendar"></i></span>
-								</div>
-								<input type="text" name="ngaylam" id="datepicker" class="form-control"
-									placeholder="Ngày làm">
-							</div>
-
-							<span class="sp-tb" id="tbNgay"></span>
-						</div>
-						
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-money" aria-hidden="true"></i></span>
-								</div>
-								<input type="text" name="luongCB" id="luongCB" class="form-control input-sm"
-									placeholder="Lương cơ bản">
-							</div>
-							<span class="sp-tb" id="tbLuongCB"></span>
-						</div>
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-briefcase"></i></span>
-								</div>
-								<select class="form-control" id="chucVu">
-									<option value="">Chọn chức vụ</option>
-									<option value="giam_doc">Giám đốc</option>
-									<option value="truong_phong">Trưởng phòng</option>
-									<option value="nhan_vien">Nhân viên</option>
-								</select>
-							</div>
-
-							<span class="sp-tb" id="tbChucVu"></span>
-						</div>
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-								</div>
-								<input type="text" name="gioLam" id="gioLam" class="form-control input-sm"
-									placeholder="Giờ làm (80 ~ 200 giờ)">
-							</div>
-							<span class="sp-tb" id="tbGiolam"></span>
-						</div> -->
 
 					</form>
 				</div>
